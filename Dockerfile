@@ -1,6 +1,6 @@
 FROM ruby:2.2.0
 
-MAINTAINER Jarod Watkins <jwatkins@jarodw.com>
+MAINTAINER Kristopher Doyen
 
 RUN apt-get update \
   && apt-get install -y automake libass-dev libfreetype6-dev libgpac-dev \
@@ -25,7 +25,7 @@ RUN apt-get update \
   && make install \
   && make distclean \
   && hash -r \
-  && git clone -b docker --single-branch git://github.com/ipstatic/wallop.git /wallop \
+  && git clone -b docker --single-branch git://github.com/kdoyen/wallop.git /wallop \
   && cd /wallop \
   && bundle install --standalone --binstubs --local --path vendor/gems --quiet \
   && rm -rf /usr/local/src \
